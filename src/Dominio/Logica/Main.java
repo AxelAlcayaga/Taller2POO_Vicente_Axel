@@ -1,4 +1,13 @@
 package logica;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import Dominio.Puerto;
+import Dominio.Pcs;
+import Dominio.Usuario;
+import Dominio.Vulnerabilidad;
+
 
 public class Main {
 
@@ -9,7 +18,7 @@ public class Main {
     private static puertos = new ArrayList<Puerto>();
     private static vulnerabilidades = new ArrayList<Vulnerabilidad>();  
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         leerPcs();
         leerPuertos();
@@ -43,7 +52,7 @@ public class Main {
             s.close();
         }
 
-        public static void leerPcs() {
+        public static void leerPcs() throws FileNotFoundException {
             f = new File("pcs.txt");
             s = new Scanner(f);
             while (s.hasNextLine()) {
@@ -58,7 +67,7 @@ public class Main {
             }   
             // Lógica para leer PCs desde un archivo
         }           
-        public static void leerPuertos() {
+        public static void leerPuertos() throws FileNotFoundException {
             f = new File("puertos.txt");
             s = new Scanner(f);
             while (s.hasNextLine()) {
@@ -73,7 +82,7 @@ public class Main {
             }   
             // Lógica para leer Puertos desde un archivo
         }
-        public static void leerUsuarios() {
+        public static void leerUsuarios() throws FileNotFoundException {
             f = new File("usuarios.txt");
             s = new Scanner(f);
             while (s.hasNextLine()) {
@@ -88,7 +97,7 @@ public class Main {
             }   
             // Lógica para leer Usuarios desde un archivo
         }
-        public static void leerVulnerabilidades() {
+        public static void leerVulnerabilidades() throws FileNotFoundException {
             f = new File("vulnerabilidades.txt");
             s = new Scanner(f);
             while (s.hasNextLine()) {
