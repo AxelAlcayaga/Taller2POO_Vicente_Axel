@@ -1,5 +1,5 @@
-src/Dominio/Puerto.java
-src/Dominio/Vulnerabilidad.java
-src/Dominio/Logica/Main.java
-src/Dominio/Pcs.java
-src/Dominio/Usuario.java
+src/dominio/Puerto.java
+src/dominio/Vulnerabilidad.java
+src/dominio/logica/Main.java
+src/dominio/Pcs.java
+src/dominio/Usuario.java
