@@ -3,34 +3,38 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import Dominio.Puerto;
-import Dominio.Pcs;
-import Dominio.Usuario;
-import Dominio.Vulnerabilidad;
+import dominio.Puerto;
+import dominio.Pc;
+import dominio.Usuario;
+import dominio.Vulnerabilidad;
+
+
 
 
 public class Main {
 
-    private static s = new Scanner();
-    private static f = new File();
-    private static usuarios = new ArrayList<Usuario>();
-    private static pcs = new ArrayList<PC>();
-    private static puertos = new ArrayList<Puerto>();
-    private static vulnerabilidades = new ArrayList<Vulnerabilidad>();  
+    private static Scanner s;
+    private static File f;
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
+    private static ArrayList<Pc> pcs = new ArrayList<>();
+    private static ArrayList<Puerto> puertos = new ArrayList<>();
+    private static ArrayList<Vulnerabilidad> vulnerabilidades = new ArrayList<>();  
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        leerPcs();
         leerPuertos();
+        leerPcs();
         leerUsuarios();
         leerVulnerabilidades();
+        int opcion = 0;
 
         do{
             System.out.println("Seleccione una opción:");
             System.out.println("1. Administrador");
             System.out.println("2. Usuario");
             System.out.println("3. Salir");
-            int opcion = s.nextInt();
+            s = new Scanner(System.in);
+            opcion = s.nextInt();
             s.nextLine(); // Consumir el salto de línea
             switch (opcion) {
                 case 1: 
@@ -48,9 +52,9 @@ public class Main {
                     System.out.println("Opción inválida. Intente de nuevo.");
             }
         }
-            while (opcion != 2)
-            s.close();
-        }
+        while (opcion != 4);
+    }
+
 
         public static void leerPcs() throws FileNotFoundException {
             f = new File("pcs.txt");
@@ -125,7 +129,73 @@ public class Main {
                     if (u.getUsername().equals(username) && u.getContraseña().equals(contraseña) && u.getRol().equals("admin")) {
                         autenticado = true;
                         break;
-            }
-                while (opcion != 2);
+                    }
+                }
+                if (autenticado) {
+                    System.out.println("1. Ver todas las PCs");
+                    System.out.println("2. Ver todas las vulnerabilidades");
+                    System.out.println("3. Salir");
+                    opcion = s.nextInt();
+                    s.nextLine(); // Consumir el salto de línea
+                    switch (opcion) {
+                        case 1:
+                            for (Pc pc : pcs) {
+                                System.out.println(pc);
+                            }
+                            break;
+                        case 2:
+                            for (Vulnerabilidad v : vulnerabilidades) {
+                                System.out.println(v);
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Saliendo del menú administrador...");
+                            break;
+                        default:
+                            System.out.println("Opción inválida. Intente de nuevo.");
+                    }
+                } else {
+                    System.out.println("Credenciales inválidas o no es un administrador.");
+                }
+            } while (opcion != 3);
+        }
+        public static void menuUsuario() {
+            int opcion;
+            do {
+                System.out.println("Menú Usuario:");
+                System.out.println("Ingrese usuario:");
+                String username = s.nextLine();
+                System.out.println("Ingrese contraseña:");
+                String contraseña = s.nextLine();
+                boolean autenticado = false;
+                for (Usuario u : usuarios) {
+                    if (u.getUsername().equals(username) && u.getContraseña().equals(contraseña) && u.getRol().equals("user")) {
+                        autenticado = true;
+                        break;
+                    }
+                }
+                if (autenticado) {
+                    System.out.println("1. Ver mis PCs");
+                    System.out.println("2. Salir");
+                    opcion = s.nextInt();
+                    s.nextLine(); // Consumir el salto de línea
+                    switch (opcion) {
+                        case 1:
+                            for (Pc pc : pcs) {
+                                if (pc.getOwner().equals(username)) {
+                                    System.out.println(pc);
+                                }
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Saliendo del menú usuario...");
+                            break;
+                        default:
+                            System.out.println("Opción inválida. Intente de nuevo.");
+                    }
+                } else {
+                    System.out.println("Credenciales inválidas o no es un usuario.");
+                }
+            } while (opcion != 2);
         }
 }

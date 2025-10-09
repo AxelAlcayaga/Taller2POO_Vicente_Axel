@@ -1,14 +1,15 @@
-package Lógica;
+package dominio;
 import java.util.ArrayList;
 
-public class Pcs {
+
+public class Pc {
 
     private String id;
     private String ip;
     private String so;
     private ArrayList<Puerto> puertos;
 
-    public Pcs(String id, String ip, String so) {
+    public Pc(String id, String ip, String so) {
         this.id = id;
         this.ip = ip;
         this.so = so;
@@ -25,6 +26,22 @@ public class Pcs {
 
     public String getSo() {
         return so;
+    }
+
+    public void setSo(String so) {
+        this.so = so;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setPuertos(ArrayList<Puerto> puertos) {
+        this.puertos = puertos;
     }
 
     public ArrayList<Puerto> getPuertos() {
