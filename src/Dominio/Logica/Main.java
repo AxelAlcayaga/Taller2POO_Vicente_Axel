@@ -107,72 +107,16 @@ public class Main {
             int opcion;
             do {
                 System.out.println("Menú Administrador:");
-                System.out.println("1. Agregar PC");
-                System.out.println("2. Eliminar PC");
-                System.out.println("3. Modificar PC");
-                System.out.println("4. Ver PCs");
-                System.out.println("5. Agregar Puerto");
-                System.out.println("6. Eliminar Puerto");
-                System.out.println("7. Modificar Puerto");
-                System.out.println("8. Ver Puertos");
-                System.out.println("9. Agregar Usuario");
-                System.out.println("10. Eliminar Usuario");
-                System.out.println("11. Modificar Usuario");
-                System.out.println("12. Ver Usuarios");
-                System.out.println("13. Agregar Vulnerabilidad");
-                System.out.println("14. Eliminar Vulnerabilidad");
-                System.out.println("15. Modificar Vulnerabilidad");
-                System.out.println("16. Ver Vulnerabilidades");
-                System.out.println("17. Salir");
-                opcion = s.nextInt();
-                s.nextLine(); // Consumir el salto de línea
-                switch (opcion) {
-                    case 1:
-                        // Lógica para agregar PC
+                System.out.println("Ingrese usuario:");
+                String username = s.nextLine();
+                System.out.println("Ingrese contraseña:");
+                String contraseña = s.nextLine();
+                boolean autenticado = false;
+                for (Usuario u : usuarios) {
+                    if (u.getUsername().equals(username) && u.getContraseña().equals(contraseña) && u.getRol().equals("admin")) {
+                        autenticado = true;
                         break;
-                    case 2:
-                        // Lógica para eliminar PC
-                        break;
-                    case 3:
-                        // Lógica para modificar PC
-                        break;
-                    case 4:
-                        // Lógica para ver PCs
-                        break;
-                    case 5:
-                        // Lógica para agregar Puerto
-                        break;
-                    case 6:
-                        // Lógica para eliminar Puerto
-                        break;
-                    case 7:
-                        // Lógica para modificar Puerto
-                        break;
-                    case 8:
-                        // Lógica para ver Puertos
-                        break;
-                    case 9:
-                        // Lógica para agregar Usuario
-                        break;
-                    case 10:
-                        // Lógica para eliminar Usuario
-                        break;
-                    case 11:
-                        // Lógica para modificar Usuario
-                        break;
-                    case 12:
-                        // Lógica para ver Usuarios
-                        break;
-                    case 13:
-                        // Lógica para agregar Vulnerabilidad
-                        break;
-                    case 14:
-                        // Lógica para eliminar Vulnerabilidad
-                        break;
-                    case 15:
-                        // Lógica para modificar Vulnerabilidad
-                        break;
-                    case 16:
-                        // Lógica para ver Vulnerabilidades
-                        break;
-    }
+            }
+                while (opcion != 2);
+        }
+}
