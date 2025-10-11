@@ -1,5 +1,5 @@
 //Axel Ignacio Alcayaga Flores, 20.832.945-6, ICCI
-//Vicente
+//Vicente Andrés Rojas Lillo, 22.141.463-2, ICCI
 package logica;
 import java.util.ArrayList;
 import java.util.Scanner;
