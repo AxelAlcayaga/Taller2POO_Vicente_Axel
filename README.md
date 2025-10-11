@@ -9,18 +9,18 @@ Sistema de auditoría de red en Java para gestionar PCs, puertos y vulnerabilida
 
 ## Guía rápida para Eclipse
 
-1. Importar el proyecto: `File → Import → Git → Projects from Git (with smart import)` e ingresar la URL del repositorio.  
-2. Abrir la clase: `src/taller1/Taller1.java`.  
-3. Ejecutar: clic derecho sobre la clase → `Run As → Java Application`.
+1. Importar el proyecto: `File → Import → Git → Projects from Git (with smart import) → Clone URL` e ingresar la URL del repositorio.  
+2. Abrir la clase: `src/logica/Main.java`.  
+3. Ejecutar `Run Main`.
 
 ## Diagramas
 ![Diagrama de clases](uml/Diagrama.png)
 
-## Compilar 
+## Compilar en consola
 mkdir -p bin
 javac -encoding UTF-8 -d bin $(find src -name "*.java")
 
-## Ejecutar
+## Ejecutar en consola
 java -cp bin logica.Main
 
 
