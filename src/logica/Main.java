@@ -34,11 +34,6 @@ public class Main {
         }
     }
 
-    private static boolean pareceSha256Base64(String s) {
-        return s != null && s.length() == 44 && s.endsWith("=") && s.matches("[A-Za-z0-9+/=]+");
-    }
-
-
     public static void main(String[] args) throws FileNotFoundException {
     	
     	
