@@ -16,3 +16,11 @@ Sistema de auditoría de red en Java para gestionar PCs, puertos y vulnerabilida
 ## Diagramas
 ![Diagrama de clases](uml/Diagrama.png)
 
+## Compilar 
+mkdir -p bin
+javac -encoding UTF-8 -d bin $(find src -name "*.java")
+
+## Ejecutar
+java -cp bin logica.Main
+
+
