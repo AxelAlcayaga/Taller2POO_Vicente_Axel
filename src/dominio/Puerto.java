@@ -37,14 +37,18 @@ public class Puerto {
     }
 
     @Override
-
     public String toString() {
-        return "Puerto{" +
-                "id='" + id + '\'' +
-                ", numero='" + numero + '\'' +
-                ", estado='" + estado + '\'' +
-                ", vulnerabilidades=" + vulnerabilidades +
-                '}';
+        String base = "Puerto " + numero + " (" + estado + ")";
+        if (vulnerabilidades == null || vulnerabilidades.isEmpty()
+            || !"Abierto".equalsIgnoreCase(estado)) return base;
+
+        StringBuilder sb = new StringBuilder(base).append("  [");
+        for (int i = 0; i < vulnerabilidades.size(); i++) {
+            sb.append(vulnerabilidades.get(i).getNombre());
+            if (i < vulnerabilidades.size() - 1) sb.append(", ");
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
 }

@@ -7,7 +7,7 @@ public class Pc {
     private String id;
     private String ip;
     private String so;
-    private ArrayList<Puerto> puertos;
+    private ArrayList<Puerto> puertos = new ArrayList<>();
 
     public Pc(String id, String ip, String so) {
         this.id = id;
@@ -54,14 +54,14 @@ public class Pc {
 
     @Override
     public String toString() {
-        return "PC{" +
-                "id='" + id + '\'' +
-                ", ip='" + ip + '\'' +  
-                ", so='" + so + '\'' +  
-                ", puertos=" + puertos +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("PC ").append(id).append('\n');
+        sb.append("  IP: ").append(ip).append('\n');
+        sb.append("  SO: ").append(so).append('\n');
+        sb.append("  Puertos (").append(puertos.size()).append("):").append('\n');
+        for (Puerto p : puertos) {
+            sb.append("    - ").append(p.toString()).append('\n'); // delega en Puerto
+        }
+        return sb.toString();
     }
-
-
-
 }
