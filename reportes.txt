@@ -1,0 +1,11 @@
+=== REPORTE DE ESCANEO ===
+Fecha: 2025-10-11 05:46:10
+Usuario: bob
+PC: PC001 | IP: 10.0.5.10 | SO: Windows 11 Pro
+Nivel de riesgo: ALTO (vulns en puertos abiertos: 3)
+Puertos:
+  - 22 (Cerrado)
+  - 80 (Abierto)  [HTTP Directory Traversal]
+  - 443 (Abierto)  [SSL/TLS Weak Cipher]
+  - 3389 (Abierto)  [RDP BlueKeep]
+
